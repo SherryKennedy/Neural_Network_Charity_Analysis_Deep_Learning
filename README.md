@@ -95,103 +95,102 @@ Written report on the performance of the deep learning model created for Alphabe
 
 The report should contains the following:
 
-1. **Overview** of the analysis:
+**Overview** of the analysis:
 #### Deep Learning Project; Chartiy Funding Predictor for Alphabet Soup.
 Deep learning and neural networks were used to determine if applicants for funding would be successfull. 
 The csv file with 34299 rows and 12 columns was submitted for review.
 
 
-2. **Results**: Using bulleted lists and images.
+**Results**: Using bulleted lists and images.
 
-  #### Data Preprocessing
-    **The target variables in the model**
-    * **IS_SUCCESSFUL**—Was the money used effectively
-    The value of '1' is considered 'yes' (successful) and '0' is considered 'no' (unsuccessful)
+#### Data Preprocessing
+**The target variables in the model**
+* **IS_SUCCESSFUL**—Was the money used effectively
+The value of '1' is considered 'yes' (successful) and '0' is considered 'no' (unsuccessful)
+**The initial dropped values**
+* **EIN** and **NAME**—Identification columns
+These values are removed from the 'starter_model'. The 'EIN' column is a unique number. 
+* Note: The 'NAME' column is initially set to be dropped as requested, as irrelevant. In the third optimization attempt, the 'NAME' was added as a feature to this model.
 
-    **The initial dropped values**
-    * **EIN** and **NAME**—Identification columns
-    These values are removed from the 'starter_model'. The 'EIN' column is a unique number. 
-    * Note: The 'NAME' column is initially set to be dropped as requested, as irrelevant. In the third optimization attempt, the 'NAME' was added as a feature to this model.
+**Feature variables in the model**
+* **APPLICATION_TYPE**—Alphabet Soup application type
+* **AFFILIATION**—Affiliated sector of industry
+* **CLASSIFICATION**—Government organization classification
+* **USE_CASE**—Use case for funding
+* **ORGANIZATION**—Organization type
+* **STATUS**—Active status
+* **INCOME_AMT**—Income classification
+* **SPECIAL_CONSIDERATIONS**—Special consideration for application
+* **ASK_AMT**—Funding amount requested
+The above remaining variables (columns) are considered features.
 
-    **Feature variables in the model**
-    * **APPLICATION_TYPE**—Alphabet Soup application type
-    * **AFFILIATION**—Affiliated sector of industry
-    * **CLASSIFICATION**—Government organization classification
-    * **USE_CASE**—Use case for funding
-    * **ORGANIZATION**—Organization type
-    * **STATUS**—Active status
-    * **INCOME_AMT**—Income classification
-    * **SPECIAL_CONSIDERATIONS**—Special consideration for application
-    * **ASK_AMT**—Funding amount requested
-    The above remaining variables (columns) are considered features.
-
-    **CLASSIFICATION** and **APPLICATION_TYPE** were replaced with **Other** 
-    Encoding of categorical variables, using sklearn.preprocessing.OneHotEncoder, after bucketing noisy features 'APPLICATION_TYPE' and 'CLASSIFICATION' with many unique values. After one hot encoding, the data was split into the 'target' and 'features', split further into 'training' and 'testing' sets, and a scaler was used on the training and testing data using sklearn.preprocessing.StandardScaler.
+**CLASSIFICATION** and **APPLICATION_TYPE** were replaced with **Other** 
+Encoding of categorical variables, using sklearn.preprocessing.OneHotEncoder, after bucketing noisy features 'APPLICATION_TYPE' and 'CLASSIFICATION' with many unique values. After one hot encoding, the data was split into the 'target' and 'features', split further into 'training' and 'testing' sets, and a scaler was used on the training and testing data using sklearn.preprocessing.StandardScaler.
         
     
-  #### Compiling, Training, and Evaluating the Model
-    * How many neurons, layers, and activation functions did you select for your neural network model, and why?
+#### Compiling, Training, and Evaluating the Model
+* How many neurons, layers, and activation functions did you select for your neural network model, and why?
 
-    #### Starter Code
-    Initially a Sequential model with dense layers. A Three layer training model using two 'relu' activation functions and one 'sigmoid' activation function generated 5,981 Trainable parameters. 
-    The number of neurons, layers and the activation functions are pictured below.
+#### Starter Code
+Initially a Sequential model with dense layers. A Three layer training model using two 'relu' activation functions and one 'sigmoid' activation function generated 5,981 Trainable parameters. 
+The number of neurons, layers and the activation functions are pictured below.
 
-    ![Starter_Code model](./Deep-Learning/Images/AlphabetSoupModelImage1.jpg)
+![Starter_Code model](./Deep-Learning/Images/AlphabetSoupModelImage1.jpg)
     
-    The model performance as seen in the chart below of the training data:
-    ![AlphabetSoup Starter: Loss Accuracy ](Deep-Learning/Images/AlphabetSoupCharity1_Acc_Loss.jpg)
+The model performance as seen in the chart below of the training data:
+![AlphabetSoup Starter: Loss Accuracy ](Deep-Learning/Images/AlphabetSoupCharity1_Acc_Loss.jpg)
     
-    - The accuracy graph shows that the model can be trained a little more. The accuracy plot shows a steady rise with some ups and down due to training. The accuracy is still raising and falling a little bit in the last few epochs. Thus, a better accuracy could be attempted. The loss looks like it is just about to level out, but it took some time to do so because there is a gentle, long downward curve.
+- The accuracy graph shows that the model can be trained a little more. The accuracy plot shows a steady rise with some ups and down due to training. The accuracy is still raising and falling a little bit in the last few epochs. Thus, a better accuracy could be attempted. The loss looks like it is just about to level out, but it took some time to do so because there is a gentle, long downward curve.
 
-    **Scores**
-    Attempting to reach a 75% accuracy.
-    - Loss: 0.5624013543128967, Accuracy: 0.7273469567298889
-    - Trainable params: 5,981
-     The starter code has reached a 72.73% testing accuracy and a loss of 56.24%
+**Scores**
+Attempting to reach a 75% accuracy.
+- Loss: 0.5624013543128967, Accuracy: 0.7273469567298889
+- Trainable params: 5,981
+The starter code has reached a 72.73% testing accuracy and a loss of 56.24%
 
 
-    **Attempts to optimize the model**
-    #### First Optimization Attempt  
-    The first attempt at increasing the accuracy, was to change some of the hyperparameters. 
-    By adding one more layer with another 'relu' activation function, there are more interactions between the variables. This may increase the accuracy. The con to this is additional computational reasources. There are now 6,271 trainable parameters.
-    The below image shows the changes to the model with respect to neurons, layers, and activation functions.
-    ![Optimizer 1 model](Deep-Learning/Images/AlphabetSoupModelOptimized1.jpg)
+**Attempts to optimize the model**
+#### First Optimization Attempt  
+The first attempt at increasing the accuracy, was to change some of the hyperparameters. 
+By adding one more layer with another 'relu' activation function, there are more interactions between the variables. This may increase the accuracy. The con to this is additional computational reasources. There are now 6,271 trainable parameters.
+The below image shows the changes to the model with respect to neurons, layers, and activation functions.
+![Optimizer 1 model](Deep-Learning/Images/AlphabetSoupModelOptimized1.jpg)
 
-    The model performance as seen in the chart below with the training data:
-    ![AlphabetSoup Optimization1: Loss Accuracy ](Deep-Learning/Images/AlphabetSoupCharity_Optimizer1_Acc_Loss.jpg)
+The model performance as seen in the chart below with the training data:
+![AlphabetSoup Optimization1: Loss Accuracy ](Deep-Learning/Images/AlphabetSoupCharity_Optimizer1_Acc_Loss.jpg)
 
-    **Scores**
-    - Loss: 0.5624170303344727, Accuracy: 0.7297959327697754
-    - Trainable params: 6,271
-    The scores showed that the accuracy rate with the test data went down a slight amount to 72.98% and the loss had a slight increase of 56.24% Although, the graph shows that it may be levelling off at 100 epochs.
+**Scores**
+- Loss: 0.5624170303344727, Accuracy: 0.7297959327697754
+- Trainable params: 6,271
+The scores showed that the accuracy rate with the test data went down a slight amount to 72.98% and the loss had a slight increase of 56.24% Although, the graph shows that it may be levelling off at 100 epochs.
 
-    #### Second Optimization Attempt  
-    The second attempt at increasing the accuracy, was to add additional additional hidden layers (3), it has increased neurons, as well more of the activation functions were 'Sigmoid'. Sigmoid was used because there is a binary output and a Sigmoid function creates this binary 0/1 output calculation. There are now 17,491 trainable parameters. The below image shows the changes to the model with respect to neurons, layers, and activation functions.
+#### Second Optimization Attempt  
+The second attempt at increasing the accuracy, was to add additional additional hidden layers (3), it has increased neurons, as well more of the activation functions were 'Sigmoid'. Sigmoid was used because there is a binary output and a Sigmoid function creates this binary 0/1 output calculation. There are now 17,491 trainable parameters. The below image shows the changes to the model with respect to neurons, layers, and activation functions.
 
-    ![Optimizer 2 model](Deep-Learning/Images/AlphabetSoupModelOptimized2.jpg)
+![Optimizer 2 model](Deep-Learning/Images/AlphabetSoupModelOptimized2.jpg)
     
-    The model performance as seen in the chart below with the training data:
-    ![AlphabetSoup Optimization2: Loss Accuracy ](Deep-Learning/Images/AlphabetSoupCharity_Optimizer2_Acc_Loss.jpg)
+The model performance as seen in the chart below with the training data:
+![AlphabetSoup Optimization2: Loss Accuracy ](Deep-Learning/Images/AlphabetSoupCharity_Optimizer2_Acc_Loss.jpg)
     
-    As a result the speed was compromised, but the accuracy result improved slightly on the test data. 
-    - Loss: 0.5611435174942017, Accuracy: 0.7271137237548828 
-    - Trainable params: 17,491
-    The scores showed that the accuracy rate went up a slight amount to 72.71% and the loss had a slight increase of 56.11% . (Various numbers and layers were attempted, but the accuracy did not increase much after this. At times this optimized better than the first optimization attempt.)
+As a result the speed was compromised, but the accuracy result improved slightly on the test data. 
+- Loss: 0.5611435174942017, Accuracy: 0.7271137237548828 
+- Trainable params: 17,491
+The scores showed that the accuracy rate went up a slight amount to 72.71% and the loss had a slight increase of 56.11% . (Various numbers and layers were attempted, but the accuracy did not increase much after this. At times this optimized better than the first optimization attempt.)
 
-     #### Third Optimization Attempt  
-    The third attempt at increasing the accuracy, was to add additional features. The 'NAME' was earlier removed from the dataset. The 'NAME' densities that are <5 were grouped together in an 'other' category. Again, all object data used one hot encoding.  
+#### Third Optimization Attempt  
+The third attempt at increasing the accuracy, was to add additional features. The 'NAME' was earlier removed from the dataset. The 'NAME' densities that are <5 were grouped together in an 'other' category. Again, all object data used one hot encoding.  
 
-    ![Optimizer 3 model](Deep-Learning/Images/AlphabetSoupModelOptimized3.jpg)
+![Optimizer 3 model](Deep-Learning/Images/AlphabetSoupModelOptimized3.jpg)
     
-    The model performance on the training model as seen in the chart below:
-    ![AlphabetSoup Optimization3: Loss Accuracy ](Deep-Learning/Images/AlphabetSoupCharity_Optimizer3_Acc_Loss.jpg)
+The model performance on the training model as seen in the chart below:
+![AlphabetSoup Optimization3: Loss Accuracy ](Deep-Learning/Images/AlphabetSoupCharity_Optimizer3_Acc_Loss.jpg)
     
-    As a result the speed was compromised, but the accuracy result improved slightly on the test data. 
-    - Loss: 0.4726506471633911, Accuracy: 0.78950434923172
-    - Trainable params: 90,031
-    The scores showed that the accuracy rate went up to 78.95% and the loss had a slight decrease of 47.27% . Model performance increased and the target of >=75% accuracy was reached.
+As a result the speed was compromised, but the accuracy result improved slightly on the test data. 
+- Loss: 0.4726506471633911, Accuracy: 0.78950434923172
+- Trainable params: 90,031
+The scores showed that the accuracy rate went up to 78.95% and the loss had a slight decrease of 47.27% . Model performance increased and the target of >=75% accuracy was reached.
     
-    - Although, the accuracy may be valid with testing criteria in the dataset, a new dataset to test this model on may give poorer results. The NAMES category are businesses whom reaply and have had previous success in receiving a loan. Thus, the model may have a bias introduced this way. 
+- Although, the accuracy may be valid with testing criteria in the dataset, a new dataset to test this model on may give poorer results. The NAMES category are businesses whom reaply and have had previous success in receiving a loan. Thus, the model may have a bias introduced this way. 
 
 
 3. **Summary**: Summarize the overall results of the deep learning model. Include a recommendation for how a different model could solve this classification problem, and explain your recommendation.
