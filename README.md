@@ -136,7 +136,7 @@ The csv file with 34299 rows and 12 columns was submitted for review.
     Initially a Sequential model with dense layers. A Three layer training model using two 'relu' activation functions and one 'sigmoid' activation function generated 5,981 Trainable parameters. 
     The number of neurons, layers and the activation functions are pictured below.
 
-    ![Starter_Code model](Deep-Learning/Images/AlphabetSoupModelImage1.jpg)
+    ![Starter_Code model](./Deep-Learning/Images/AlphabetSoupModelImage1.jpg)
     
     The model performance as seen in the chart below of the training data:
     ![AlphabetSoup Starter: Loss Accuracy ](Deep-Learning/Images/AlphabetSoupCharity1_Acc_Loss.jpg)
