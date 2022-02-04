@@ -136,10 +136,10 @@ The csv file with 34299 rows and 12 columns was submitted for review.
     Initially a Sequential model with dense layers. A Three layer training model using two 'relu' activation functions and one 'sigmoid' activation function generated 5,981 Trainable parameters. 
     The number of neurons, layers and the activation functions are pictured below.
 
-    ![Starter_Code model](Images/AlphabetSoupModelImage1.jpg)
+    ![Starter_Code model](Deep-Learning/Images/AlphabetSoupModelImage1.jpg)
     
     The model performance as seen in the chart below of the training data:
-    ![AlphabetSoup Starter: Loss Accuracy ](Images/AlphabetSoupCharity1_Acc_Loss.jpg)
+    ![AlphabetSoup Starter: Loss Accuracy ](Deep-Learning/Images/AlphabetSoupCharity1_Acc_Loss.jpg)
     
     - The accuracy graph shows that the model can be trained a little more. The accuracy plot shows a steady rise with some ups and down due to training. The accuracy is still raising and falling a little bit in the last few epochs. Thus, a better accuracy could be attempted. The loss looks like it is just about to level out, but it took some time to do so because there is a gentle, long downward curve.
 
@@ -155,10 +155,10 @@ The csv file with 34299 rows and 12 columns was submitted for review.
     The first attempt at increasing the accuracy, was to change some of the hyperparameters. 
     By adding one more layer with another 'relu' activation function, there are more interactions between the variables. This may increase the accuracy. The con to this is additional computational reasources. There are now 6,271 trainable parameters.
     The below image shows the changes to the model with respect to neurons, layers, and activation functions.
-    ![Optimizer 1 model](Images/AlphabetSoupModelOptimized1.jpg)
+    ![Optimizer 1 model](Deep-Learning/Images/AlphabetSoupModelOptimized1.jpg)
 
     The model performance as seen in the chart below with the training data:
-    ![AlphabetSoup Optimization1: Loss Accuracy ](Images/AlphabetSoupCharity_Optimizer1_Acc_Loss.jpg)
+    ![AlphabetSoup Optimization1: Loss Accuracy ](Deep-Learning/Images/AlphabetSoupCharity_Optimizer1_Acc_Loss.jpg)
 
     **Scores**
     - Loss: 0.5624170303344727, Accuracy: 0.7297959327697754
@@ -168,10 +168,10 @@ The csv file with 34299 rows and 12 columns was submitted for review.
     #### Second Optimization Attempt  
     The second attempt at increasing the accuracy, was to add additional additional hidden layers (3), it has increased neurons, as well more of the activation functions were 'Sigmoid'. Sigmoid was used because there is a binary output and a Sigmoid function creates this binary 0/1 output calculation. There are now 17,491 trainable parameters. The below image shows the changes to the model with respect to neurons, layers, and activation functions.
 
-    ![Optimizer 2 model](Images/AlphabetSoupModelOptimized2.jpg)
+    ![Optimizer 2 model](Deep-Learning/Images/AlphabetSoupModelOptimized2.jpg)
     
     The model performance as seen in the chart below with the training data:
-    ![AlphabetSoup Optimization2: Loss Accuracy ](Images/AlphabetSoupCharity_Optimizer2_Acc_Loss.jpg)
+    ![AlphabetSoup Optimization2: Loss Accuracy ](Deep-Learning/Images/AlphabetSoupCharity_Optimizer2_Acc_Loss.jpg)
     
     As a result the speed was compromised, but the accuracy result improved slightly on the test data. 
     - Loss: 0.5611435174942017, Accuracy: 0.7271137237548828 
@@ -181,10 +181,10 @@ The csv file with 34299 rows and 12 columns was submitted for review.
      #### Third Optimization Attempt  
     The third attempt at increasing the accuracy, was to add additional features. The 'NAME' was earlier removed from the dataset. The 'NAME' densities that are <5 were grouped together in an 'other' category. Again, all object data used one hot encoding.  
 
-    ![Optimizer 3 model](Images/AlphabetSoupModelOptimized3.jpg)
+    ![Optimizer 3 model](Deep-Learning/Images/AlphabetSoupModelOptimized3.jpg)
     
     The model performance on the training model as seen in the chart below:
-    ![AlphabetSoup Optimization3: Loss Accuracy ](Images/AlphabetSoupCharity_Optimizer3_Acc_Loss.jpg)
+    ![AlphabetSoup Optimization3: Loss Accuracy ](Deep-Learning/Images/AlphabetSoupCharity_Optimizer3_Acc_Loss.jpg)
     
     As a result the speed was compromised, but the accuracy result improved slightly on the test data. 
     - Loss: 0.4726506471633911, Accuracy: 0.78950434923172
