@@ -12,13 +12,13 @@ From Alphabet Soup’s business team, you have received a CSV containing more th
 
 
 ## File Path Setup:
--- google colab folder (or one of your choice to change in the code): 
--- ***/content/drive/MyDrive/Colab Notebooks/**
-**Deep-Learning** folder to keep the Jupyter Notebook code files
--- In **Deep-Learning**  -> **Resources**   (file for data)
--- In **Deep-Learning**  -> **Images**      (output images)
--- In **Deep-Learning**  -> **Models**      (output models created)
--- In **Deep-Learning**  -> **checkpoints** (output of model checkpoints, overwritten when another models is run)
+- google colab folder (or one of your choice to change in the code) 
+- **/content/drive/MyDrive/Colab Notebooks/**
+**Deep-Learning** (folder to keep the Jupyter Notebook code files)
+- In **Deep-Learning**  -> **Resources**   (file for data)
+- In **Deep-Learning**  -> **Images**      (output images)
+- In **Deep-Learning**  -> **Models**      (output models created)
+- In **Deep-Learning**  -> **checkpoints** (output of model checkpoints, overwritten when another models is run)
 
 
 
@@ -93,23 +93,21 @@ Optimize your model in order to achieve a target predictive accuracy higher than
 
 Written report on the performance of the deep learning model created for AlphabetSoup.
 
-The report should contains the following:
-
-**Overview** of the analysis:
+**OVERVIEW** of the analysis:
 #### Deep Learning Project; Chartiy Funding Predictor for Alphabet Soup.
 Deep learning and neural networks were used to determine if applicants for funding would be successfull. 
 The csv file with 34299 rows and 12 columns was submitted for review.
 
+# **RESULTS**
 
-**Results**: Using bulleted lists and images.
-
-#### Data Preprocessing
+## Data Preprocessing
 **The target variables in the model**
 * **IS_SUCCESSFUL**—Was the money used effectively
 The value of '1' is considered 'yes' (successful) and '0' is considered 'no' (unsuccessful)
+
 **The initial dropped values**
 * **EIN** and **NAME**—Identification columns
-These values are removed from the 'starter_model'. The 'EIN' column is a unique number. 
+* These values were removed from the 'starter_model'. The 'EIN' column is a unique number. 
 * Note: The 'NAME' column is initially set to be dropped as requested, as irrelevant. In the third optimization attempt, the 'NAME' was added as a feature to this model.
 
 **Feature variables in the model**
@@ -128,78 +126,96 @@ The above remaining variables (columns) are considered features.
 Encoding of categorical variables, using sklearn.preprocessing.OneHotEncoder, after bucketing noisy features 'APPLICATION_TYPE' and 'CLASSIFICATION' with many unique values. After one hot encoding, the data was split into the 'target' and 'features', split further into 'training' and 'testing' sets, and a scaler was used on the training and testing data using sklearn.preprocessing.StandardScaler.
         
     
-#### Compiling, Training, and Evaluating the Model
+## Compiling, Training, and Evaluating the Model
 * How many neurons, layers, and activation functions did you select for your neural network model, and why?
 
-#### Starter Code
-Initially a Sequential model with dense layers. A Three layer training model using two 'relu' activation functions and one 'sigmoid' activation function generated 5,981 Trainable parameters. 
-The number of neurons, layers and the activation functions are pictured below.
+### **Starter Code**
+Initially a Sequential model with dense layers. Input layer, then two hidden layers with 80 and 30 neurons each using a 'relu' activation function. One 'sigmoid' activation function with one neuron. There were 5,981 trainable parameters.
 
-![Starter_Code model](./Deep-Learning/Images/AlphabetSoupModelImage1.jpg)
+The number of neurons, layers are pictured below.
+
+![Starter_Code model](Deep-Learning/Images/AlphabetSoupModelImage1.jpg)
     
 The model performance as seen in the chart below of the training data:
 ![AlphabetSoup Starter: Loss Accuracy ](Deep-Learning/Images/AlphabetSoupCharity1_Acc_Loss.jpg)
     
-- The accuracy graph shows that the model can be trained a little more. The accuracy plot shows a steady rise with some ups and down due to training. The accuracy is still raising and falling a little bit in the last few epochs. Thus, a better accuracy could be attempted. The loss looks like it is just about to level out, but it took some time to do so because there is a gentle, long downward curve.
+The accuracy graph above, of the training data, shows that the model can be trained a little more. The accuracy plot shows a steady rise with some ups and down due to training. The accuracy is still rising and falling a little bit in the last few epochs. Thus, a better accuracy could be attempted. The training accuracy looks to be near 74%. The loss looks like it is just about to level out, but it took some time to do so because there is a gentle, long downward curve. The training loss looks to be around 53.5%
 
-**Scores**
+**Testing Scores**
 Attempting to reach a 75% accuracy.
 - Loss: 0.5624013543128967, Accuracy: 0.7273469567298889
-- Trainable params: 5,981
-The starter code has reached a 72.73% testing accuracy and a loss of 56.24%
+
+The testing data for the starter code has reached a 72.73% testing accuracy and a loss of 56.24%
 
 
-**Attempts to optimize the model**
-#### First Optimization Attempt  
+**ATTEMPTS TO OPTIMIZE THE MODEL:**
+Batches were used for these models, and checkpoints were saved. (overwritten though)
+
+### **First Optimization Attempt**  
 The first attempt at increasing the accuracy, was to change some of the hyperparameters. 
-By adding one more layer with another 'relu' activation function, there are more interactions between the variables. This may increase the accuracy. The con to this is additional computational reasources. There are now 6,271 trainable parameters.
-The below image shows the changes to the model with respect to neurons, layers, and activation functions.
+By adding one more layer with another 'relu' activation function, there are more interactions between the variables. This may increase the accuracy. The con to this is additional computational reasources. Thus, input layer, then three hidden layers with 80, 30, and 10 neurons each using a 'relu' activation function. One 'sigmoid' activation function with one neuron. There are now 6,271 trainable parameters.
+
+The below image shows the changes to the model with respect to neurons, layers.
 ![Optimizer 1 model](Deep-Learning/Images/AlphabetSoupModelOptimized1.jpg)
 
 The model performance as seen in the chart below with the training data:
 ![AlphabetSoup Optimization1: Loss Accuracy ](Deep-Learning/Images/AlphabetSoupCharity_Optimizer1_Acc_Loss.jpg)
 
-**Scores**
-- Loss: 0.5624170303344727, Accuracy: 0.7297959327697754
-- Trainable params: 6,271
-The scores showed that the accuracy rate with the test data went down a slight amount to 72.98% and the loss had a slight increase of 56.24% Although, the graph shows that it may be levelling off at 100 epochs.
+The accuracy graph above, of the training data, shows that the model looks almost completely trained by the end of the 100 epochs. (The accuracy line looks to just be levelling out.) The accuracy plot shows a steady rise with some ups and down due to training. The training accuracy looks to be near 74%. The loss looks like it has levelled out around 100 epochs. The training loss looks to be around 53.5% A few more epochs may be needed to see if the training data is levelling out here.
 
-#### Second Optimization Attempt  
-The second attempt at increasing the accuracy, was to add additional additional hidden layers (3), it has increased neurons, as well more of the activation functions were 'Sigmoid'. Sigmoid was used because there is a binary output and a Sigmoid function creates this binary 0/1 output calculation. There are now 17,491 trainable parameters. The below image shows the changes to the model with respect to neurons, layers, and activation functions.
+**Testing Scores**
+- Loss: 0.5624170303344727, Accuracy: 0.7297959327697754
+
+The scores showed that the accuracy rate with the test data went up a slight amount to 72.98% and the loss had a slight increase of 56.242% 
+
+### **Second Optimization Attempt**  
+The second attempt at increasing the accuracy, was to keep the 3 hidden layers, but to increase the number of neurons. Additionally, use the activation functions 'Sigmoid' a few more times. Sigmoid was used because there is a binary output and a Sigmoid function creates this binary 0/1 output calculation. Thus, input layer, then three hidden layers with 180 (relu), 50 (sigmoid), and 10 neurons (sigmoid). Another 'sigmoid' activation function with one neuron. There are now 17,491 trainable parameters. 
+
+The below image shows the changes to the model with respect to neurons, and layers.
 
 ![Optimizer 2 model](Deep-Learning/Images/AlphabetSoupModelOptimized2.jpg)
     
 The model performance as seen in the chart below with the training data:
 ![AlphabetSoup Optimization2: Loss Accuracy ](Deep-Learning/Images/AlphabetSoupCharity_Optimizer2_Acc_Loss.jpg)
     
-As a result the speed was compromised, but the accuracy result improved slightly on the test data. 
+As a result the speed was compromised (additionaly training with more neurons). The accuracy graph above, of the training data, shows that the model looks completely trained by the end of the 100 epochs. The accuracy plot shows a steady rise with some ups and down due to training. The training accuracy looks to be near 74%. The loss looks like it has levelled out around 100 epochs. The training loss looks to be around 53% 
+
+**Testing Scores**
 - Loss: 0.5611435174942017, Accuracy: 0.7271137237548828 
-- Trainable params: 17,491
-The scores showed that the accuracy rate went up a slight amount to 72.71% and the loss had a slight increase of 56.11% . (Various numbers and layers were attempted, but the accuracy did not increase much after this. At times this optimized better than the first optimization attempt.)
+
+The scores showed that the accuracy rate went down a slight amount to 72.71% and the loss had a slight increase of 56.11% . (Various numbers and layers were attempted, but the accuracy did not increase much after this. At times this optimized better than the first optimization attempt.)
 
 #### Third Optimization Attempt  
-The third attempt at increasing the accuracy, was to add additional features. The 'NAME' was earlier removed from the dataset. The 'NAME' densities that are <5 were grouped together in an 'other' category. Again, all object data used one hot encoding.  
+The third attempt at increasing the accuracy, was to add additional features. The 'NAME' was earlier removed from the dataset. The 'NAME' densities that are <5 were grouped together in an 'other' category. Again, all object data used one hot encoding. Thus, input layer, then three hidden layers with 180 (relu), 50 (sigmoid), and 10 neurons (sigmoid). Another 'sigmoid' activation function with one neuron. With additional features, there are now 90,031 trainable parameters. More data may increase the accuracy.
+
+The below image shows the model with respect to neurons, and layers.
 
 ![Optimizer 3 model](Deep-Learning/Images/AlphabetSoupModelOptimized3.jpg)
     
 The model performance on the training model as seen in the chart below:
+
 ![AlphabetSoup Optimization3: Loss Accuracy ](Deep-Learning/Images/AlphabetSoupCharity_Optimizer3_Acc_Loss.jpg)
-    
-As a result the speed was compromised, but the accuracy result improved slightly on the test data. 
+
+As a result the speed was compromised.  The accuracy graph above, of the training data, shows that the model looks completely trained by the end of the 100 epochs. The accuracy plot shows a steady rise with some ups and down due to training. The training accuracy looks to be near 81%. The loss looks like it has levelled out around 100 epochs. The training loss looks to be around 35% 
+
+**Testing Scores**
 - Loss: 0.4726506471633911, Accuracy: 0.78950434923172
-- Trainable params: 90,031
-The scores showed that the accuracy rate went up to 78.95% and the loss had a slight decrease of 47.27% . Model performance increased and the target of >=75% accuracy was reached.
+
+The scores showed that the accuracy rate went up to 78.95% and the loss had a decrease of 47.27% . Model performance increased and the target of >=75% accuracy was reached.
     
-- Although, the accuracy may be valid with testing criteria in the dataset, a new dataset to test this model on may give poorer results. The NAMES category are businesses whom reaply and have had previous success in receiving a loan. Thus, the model may have a bias introduced this way. 
+Although, the accuracy may be valid with testing criteria in the dataset, a new dataset to test this model on may give poorer results. The NAMES category, are businesses, whom reaply and have had previous success in receiving a loan. Thus, the model may have a bias introduced this way. 
 
 
-3. **Summary**: Summarize the overall results of the deep learning model. Include a recommendation for how a different model could solve this classification problem, and explain your recommendation.
+ # **Summary**
 
-The first two optimization models were unable to perform a 75% accuracy rate. Attempts were initially made to increase the layers and neurons, a second attempt was to additionally use the Sigmoid function in some of the hidden layers. Accuracy was shown to increase at a cost of speed. 
+The first two optimization models were unable to perform a 75% accuracy rate. Attempts were initially made to increase the layers with 10 additional neurons in it, a second attempt was to additionally use the Sigmoid function in some of the hidden layers and increasing the number of neurons. Testing accuracy was shown to be around the same. 
+Starter : 72.73%
+Optimize 1: 72.98%
+Optimize 2: 72.71%
 
-The last model, may have introduced a bias by using the 'NAME' classisfication, but was able to attain a 78.86% accuracy rate with the testing data. Further testing with seperate data would need to be done to prove whether a bias of using the 'NAME' classification was introduced. Although, it makes sense that if a 'company' was approved for a loan, the 'company' would further reapply for more. 
+The last model, may have introduced a bias by using the 'NAME' classisfication, but was able to attain a 78.95% accuracy rate with the testing data. Further testing with seperate data would need to be done to prove whether a bias of using the 'NAME' classification was introduced. Although, it makes sense that if a 'company' was approved for a loan, the 'company' would further reapply and be approved for more loans. 
 
-Note that the second optimization model only increased the model slightly. This can be compared to some of 'con' characteristics of the binary classifier as listed here and below: [Pros and Cons of Activation Functions]( https://ml-cheatsheet.readthedocs.io/en/latest/activation_functions.html)
+Note that the optimization models only increased the testing accuracy slightly. This can be compared to some of 'con' characteristics of the binary classifier as listed here and below: [Pros and Cons of Activation Functions]( https://ml-cheatsheet.readthedocs.io/en/latest/activation_functions.html)
 
 **Cons of Sigmoid**
 
@@ -211,8 +227,10 @@ Note that the second optimization model only increased the model slightly. This 
 
 
 **Improving the Model More**
-- Seperate test data is needed to test the successful model. If the model proves to work, more can be done to improve the speed. Fewer batches could be created. One may be able to get a similar accuracy with fewer neurons as well. 
+- Seperate test data is needed to test the successful model. If the model proves to work, more can be done to improve the speed. Fewer batches could be created according to the data size. One may be able to get a similar accuracy with fewer neurons as well. 
 - It takes a while for some of the 'NAMES' to be placed in the 'Other' category optimization of code could be done here.
+- A review of some of the error amounts could be done for insights.
+
 - - -
 
 
