@@ -108,7 +108,7 @@ The value of '1' is considered 'yes' (successful) and '0' is considered 'no' (un
 **The initial dropped values**
 * **EIN** and **NAME**—Identification columns
 * These values were removed from the 'starter_model'. The 'EIN' column is a unique number. 
-* Note: The 'NAME' column is initially set to be dropped as requested, as irrelevant. In the third optimization attempt, the 'NAME' was added as a feature to this model.
+* Note: The 'NAME' column is initially set to be dropped as requested, as identification. In the third optimization attempt, the 'NAME' was added as a feature to this model.
 
 **Feature variables in the model**
 * **APPLICATION_TYPE**—Alphabet Soup application type
