@@ -127,7 +127,6 @@ Encoding of categorical variables, using sklearn.preprocessing.OneHotEncoder, af
         
     
 ## Compiling, Training, and Evaluating the Model
-* How many neurons, layers, and activation functions did you select for your neural network model, and why?
 
 ### **Starter Code**
 Initially a Sequential model with dense layers. Input layer, then two hidden layers with 80 and 30 neurons each using a 'relu' activation function. One 'sigmoid' activation function with one neuron. There were 5,981 trainable parameters.
