@@ -229,6 +229,7 @@ Note that the optimization models only increased the testing accuracy slightly. 
 - Seperate test data is needed to test the successful model. If the model proves to work, more can be done to improve the speed. Fewer batches could be created according to the data size. One may be able to get a similar accuracy with fewer neurons as well. 
 - It takes a while for some of the 'NAMES' to be placed in the 'Other' category. Code optimization could be done here.
 - A review of some of the error amounts could be done for insights.
+- 'val-acc' could be used to validate on a validation set for additional insights.
 
 - - -
 
