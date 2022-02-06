@@ -184,7 +184,7 @@ As a result the speed was compromised (additionaly training with more neurons). 
 
 The scores showed that the accuracy rate went down a slight amount to 72.71% and the loss had a slight increase of 56.11% . (Various numbers and layers were attempted, but the accuracy did not increase much after this. At times this optimized better than the first optimization attempt.)
 
-#### Third Optimization Attempt  
+### **Third Optimization Attempt**  
 The third attempt at increasing the accuracy, was to add additional features. The 'NAME' was earlier removed from the dataset. The 'NAME' densities that are <5 were grouped together in an 'other' category. Again, all object data used one hot encoding. Thus, input layer, then three hidden layers with 180 (relu), 50 (sigmoid), and 10 neurons (sigmoid). Another 'sigmoid' activation function with one neuron. With additional features, there are now 90,031 trainable parameters. More data may increase the accuracy.
 
 The below image shows the model with respect to neurons, and layers.
