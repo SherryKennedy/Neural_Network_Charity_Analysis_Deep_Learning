@@ -1,8 +1,11 @@
 # Deep Learning: Charity Funding Predictor
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/SherryKennedy/Neural_Network_Charity_Analysis_Deep_Learning]
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/SherryKennedy/Neural_Network_Charity_Analysis_Deep_Learning)]
+
 
 #### Note: Created with Google Colab. Do not run the first section of code if you are not using google colab to mount the drive. Additionally, you would need to change the file path names throughout. 
+
+### Summary and Analysis at the bottom of the readme.
 
 
 ## Background
@@ -94,7 +97,7 @@ Optimize your model in order to achieve a target predictive accuracy higher than
 
 Written report on the performance of the deep learning model created for AlphabetSoup.
 
-**OVERVIEW** of the analysis:
+## **OVERVIEW  for the ANALYSIS**:
 #### Deep Learning Project; Chartiy Funding Predictor for Alphabet Soup.
 Deep learning and neural networks were used to determine if applicants for funding would be successfull. 
 The csv file with 34299 rows and 12 columns was submitted for review.
@@ -137,6 +140,7 @@ The number of neurons, layers are pictured below.
 ![Starter_Code model](Deep-Learning/Images/AlphabetSoupModelImage1.jpg)
     
 The model performance as seen in the chart below of the training data:
+
 ![AlphabetSoup Starter: Loss Accuracy ](Deep-Learning/Images/AlphabetSoupCharity1_Acc_Loss.jpg)
     
 The accuracy graph above, of the training data, shows that the model can be trained a little more. The accuracy plot shows a steady rise with some ups and down due to training. The accuracy is still rising and falling a little bit in the last few epochs. Thus, a better accuracy could be attempted. The training accuracy looks to be near 74%. The loss looks like it is just about to level out, but it took some time to do so because there is a gentle, long downward curve. The training loss looks to be around 53.5%
@@ -156,9 +160,11 @@ The first attempt at increasing the accuracy, was to change some of the hyperpar
 By adding one more layer with another 'relu' activation function, there are more interactions between the variables. This may increase the accuracy. The con to this is additional computational reasources. Thus, input layer, then three hidden layers with 80, 30, and 10 neurons each using a 'relu' activation function. One 'sigmoid' activation function with one neuron. There are now 6,271 trainable parameters.
 
 The below image shows the changes to the model with respect to neurons, layers.
+
 ![Optimizer 1 model](Deep-Learning/Images/AlphabetSoupModelOptimized1.jpg)
 
 The model performance as seen in the chart below with the training data:
+
 ![AlphabetSoup Optimization1: Loss Accuracy ](Deep-Learning/Images/AlphabetSoupCharity_Optimizer1_Acc_Loss.jpg)
 
 The accuracy graph above, of the training data, shows that the model looks almost completely trained by the end of the 100 epochs. (The accuracy line looks to just be levelling out.) The accuracy plot shows a steady rise with some ups and down due to training. The training accuracy looks to be near 74%. The loss looks like it has levelled out around 100 epochs. The training loss looks to be around 53.5% A few more epochs may be needed to see if the training data is levelling out here.
@@ -176,6 +182,7 @@ The below image shows the changes to the model with respect to neurons, and laye
 ![Optimizer 2 model](Deep-Learning/Images/AlphabetSoupModelOptimized2.jpg)
     
 The model performance as seen in the chart below with the training data:
+
 ![AlphabetSoup Optimization2: Loss Accuracy ](Deep-Learning/Images/AlphabetSoupCharity_Optimizer2_Acc_Loss.jpg)
     
 As a result the speed was compromised (additionaly training with more neurons). The accuracy graph above, of the training data, shows that the model looks completely trained by the end of the 100 epochs. The accuracy plot shows a steady rise with some ups and down due to training. The training accuracy looks to be near 74%. The loss looks like it has levelled out around 100 epochs. The training loss looks to be around 53% 
