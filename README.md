@@ -1,5 +1,6 @@
 # Deep Learning: Charity Funding Predictor
 
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/SherryKennedy/Neural_Network_Charity_Analysis_Deep_Learning]
 
 #### Note: Created with Google Colab. Do not run the first section of code if you are not using google colab to mount the drive. Additionally, you would need to change the file path names throughout. 
 
